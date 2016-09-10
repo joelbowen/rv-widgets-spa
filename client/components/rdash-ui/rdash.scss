@@ -274,6 +274,7 @@ div.input-mask {
 ul.sidebar .sidebar-main a,
 .sidebar-footer,
 ul.sidebar .sidebar-list a:hover,
+ul.sidebar .sidebar-list a.active,
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator {
   /* Sidebar header and footer color */
   background: #2d3e63;
@@ -329,12 +330,14 @@ ul.sidebar .sidebar-list a {
   color: #b2bfdc;
   line-height: 40px;
 }
-ul.sidebar .sidebar-list a:hover {
+ul.sidebar .sidebar-list a:hover,
+ul.sidebar .sidebar-list a.active {
   color: #fff;
   border-left: 3px solid #e99d1a;
   text-indent: 22px;
 }
-ul.sidebar .sidebar-list a:hover .menu-icon {
+ul.sidebar .sidebar-list a:hover .menu-icon,
+ul.sidebar .sidebar-list a.active .menu-icon {
   text-indent: 25px;
 }
 ul.sidebar .sidebar-list .menu-icon {

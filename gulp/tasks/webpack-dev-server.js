@@ -25,6 +25,7 @@ gulp.task('webpack-dev-server', () => {
   // Start a webpack-dev-server
   new WebpackDevServer(webpack(webpackConfig), {
     contentBase: 'client',
+    historyApiFallback: true,
     stats: {
       colors: true,
       reasons: true,

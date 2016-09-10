@@ -6,7 +6,7 @@ const BUILD_DIR = path.join(__dirname, 'dist');
 module.exports = {
   context: __dirname,
   entry: {
-    app: [`${APP_DIR}/App.js`],
+    app: [`${APP_DIR}/App.jsx`],
   },
   output: {
     path: BUILD_DIR,
