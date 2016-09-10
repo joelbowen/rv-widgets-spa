@@ -1,24 +1,17 @@
 import React from 'react';
+import Header from '../Header';
+
+const location = {
+  name: 'Users',
+  breadcrumbs: [
+    'Home',
+    'Users',
+  ],
+};
 
 const Users = () => (
   <div className="page-content">
-    {/* <!-- Header Bar --> */}
-    <div className="row header col-xs-12">
-      <div className="user pull-right">
-        <div className="item dropdown">
-          <a className="dropdown-toggle">
-            <img src="/assets/images/avatar.jpg" alt="" />
-          </a>
-        </div>
-      </div>
-      <div className="meta">
-        <div className="page">Dashboard</div>
-        <div className="breadcrumb-links">Home / Dashboard</div>
-      </div>
-    </div>
-    {/* <!-- End Header Bar --> */}
-
-
+    <Header {...location} />
     {/* <!-- Tables --> */}
     <div className="row">
 
