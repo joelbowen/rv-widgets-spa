@@ -20,7 +20,7 @@
 
 /**
  * Hamburg Menu
- * When the class of 'hamburg' is applied to the body tag of the document, 
+ * When the class of 'hamburg' is applied to the body tag of the document,
  * the sidebar changes it's style to attempt to mimic a menu on a phone app,
  * where the content is overlaying the content, rather than push it.
  */
@@ -186,15 +186,18 @@
 /* Fonts */
 @font-face {
   font-family: 'Montserrat';
-  src: url('../fonts/montserrat-regular-webfont.eot');
-  src: url('../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/montserrat-regular-webfont.woff') format('woff'), url('../fonts/montserrat-regular-webfont.ttf') format('truetype'), url('../fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+  src: url('#{$rdash-font-path}montserrat-regular-webfont.eot');
+  src: url('#{$rdash-font-path}montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('#{$rdash-font-path}montserrat-regular-webfont.woff') format('woff'),
+       url('#{$rdash-font-path}montserrat-regular-webfont.ttf') format('truetype'),
+       url('#{$rdash-font-path}montserrat-regular-webfont.svg#montserratregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/montserrat-regular-webfont.svg') format('svg');
+    src: url('#{$rdash-font-path}montserrat-regular-webfont.svg') format('svg');
   }
   select {
     font-family: Arial, Helvetica, sans-serif;
