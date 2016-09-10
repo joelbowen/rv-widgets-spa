@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header';
+import { connector } from '../Store';
 
 const location = {
   name: 'Widgets',
@@ -131,4 +132,4 @@ const Widgets = () => (
   </div>
 );
 
-export default Widgets;
+export default connector(Widgets);

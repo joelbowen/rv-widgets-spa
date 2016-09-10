@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header';
+import { connector } from '../Store';
 
 const location = {
   name: 'Users',
@@ -52,4 +53,4 @@ const Users = () => (
   </div>
 );
 
-export default Users;
+export default connector(Users);
