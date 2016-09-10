@@ -2,10 +2,13 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './client/App.js',
+  entry: {
+    app: ['./client/App.js']
+  },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'assets/bundle.js'
+    filename: 'assets/bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
@@ -29,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(.v=[0-9].[0-9].[0-9])?/,
-        loader: `file?name=/assets/fonts/[name].[ext]`
+        loader: `file?name=assets/fonts/[name].[ext]`
       }
     ]
   },
