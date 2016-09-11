@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import { connector } from '../Store';
 import UserList from '../Users/List';
+import WidgetsList from '../Widgets/List';
 
 const location = {
   name: 'Dashboard',
@@ -38,7 +39,12 @@ const Dashboard = (props) => (
             <div className="widget-icon green pull-left">
               <i className="fa fa-users" />
             </div>
-            <div className="title">{10}</div>
+            <div className="title">
+              {
+                props.widgets.items.length >= 0 ? props.widgets.items.length
+                  : <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true" />
+              }
+            </div>
             <div className="comment">Widgets</div>
           </div>
         </div>
@@ -69,26 +75,7 @@ const Dashboard = (props) => (
               <input type="text" className="form-control input-sm" />
             </div>
           </div>
-          <div className="table-responsive">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th className="text-center">ID</th>
-                  <th>Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-center">1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td className="text-center">2</td>
-                  <td>B</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <WidgetsList location={props.location} />
         </div>
       </div>
       {/* <!-- End Widgets --> */}
@@ -98,7 +85,7 @@ const Dashboard = (props) => (
   </div>
 );
 
-const { string, number, arrayOf, shape } = React.PropTypes;
+const { bool, string, number, arrayOf, shape } = React.PropTypes;
 Dashboard.propTypes = {
   location: shape({
     pathname: string,
@@ -112,6 +99,16 @@ Dashboard.propTypes = {
       name: string,
       id: number,
       gravatar: string,
+    })),
+  }),
+  widgets: shape({
+    items: arrayOf(shape({
+      id: number,
+      name: string,
+      color: string,
+      price: string,
+      inventory: number,
+      melts: bool,
     })),
   }),
 };

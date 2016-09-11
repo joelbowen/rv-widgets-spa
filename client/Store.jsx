@@ -1,8 +1,10 @@
 import { createStore, compose } from 'redux';
 import { connect } from 'react-redux';
 import Users from './data/users';
+import Widgets from './data/widgets';
 
 const GET_USERS = 'getUsers';
+const GET_WIDGETS = 'getWidgets';
 const SET_USER_SEARCH = 'setUserSearch';
 
 const initialState = {
@@ -11,6 +13,9 @@ const initialState = {
   },
   userSearch: '',
   users: {
+    items: [],
+  },
+  widgets: {
     items: [],
   },
 };
@@ -27,6 +32,8 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS:
       return Users.reducer(state, action.value);
+    case GET_WIDGETS:
+      return Widgets.reducer(state, action.value);
     case SET_USER_SEARCH:
       return reduceSearch(state, action, 'userSearch');
     default:
@@ -44,6 +51,7 @@ const store = createStore(rootReducer, initialState, compose(
 const mapStateToProps = (state) => ({
   user: state.user,
   users: state.users,
+  widgets: state.widgets,
   userSearch: state.userSearch,
 });
 
@@ -51,6 +59,10 @@ const mapDispatchToProps = (dispatch) => ({
   getUsers() {
     Users.get().then((res) =>
       dispatch({ type: GET_USERS, value: res.data }));
+  },
+  getWidgets() {
+    Widgets.get().then((res) =>
+      dispatch({ type: GET_WIDGETS, value: res.data }));
   },
   setUserSearch(searchTerm) {
     dispatch({ type: SET_USER_SEARCH, value: searchTerm });
