@@ -51,6 +51,7 @@
     "gulp-util": "^3.0.7",
     "node-sass": "^3.9.3",
     "postcss-loader": "^0.13.0",
+    "promise": "^7.1.1",
     "require-dir": "^0.3.0",
     "sass-loader": "^4.0.2",
     "source-map-loader": "^0.1.5",

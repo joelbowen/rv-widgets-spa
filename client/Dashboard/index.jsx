@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header';
 import { connector } from '../Store';
+import UserList from '../Users/List';
 
 const location = {
   name: 'Dashboard',
@@ -10,7 +11,7 @@ const location = {
   ],
 };
 
-const Dashboard = () => (
+const Dashboard = (props) => (
   <div className="page-content">
     <Header {...location} />
     {/* <!-- Dashboard Boxes --> */}
@@ -21,7 +22,12 @@ const Dashboard = () => (
             <div className="widget-icon green pull-left">
               <i className="fa fa-users" />
             </div>
-            <div className="title">{5}</div>
+            <div className="title">
+              {
+                props.users.items.length >= 0 ? props.users.items.length
+                  : <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true" />
+              }
+            </div>
             <div className="comment">Users</div>
           </div>
         </div>
@@ -50,30 +56,7 @@ const Dashboard = () => (
               <input type="text" className="form-control input-sm" />
             </div>
           </div>
-          <div className="table-responsive">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th className="text-center">ID</th>
-                  <th>Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-center">1</td>
-                  <td>Joe Bloggs</td>
-                </tr>
-                <tr>
-                  <td className="text-center">2</td>
-                  <td>Timothy Hernandez</td>
-                </tr>
-                <tr>
-                  <td className="text-center">3</td>
-                  <td>Joe Bickham</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <UserList location={props.location} />
         </div>
       </div>
       {/* <!-- End Users --> */}
@@ -114,5 +97,23 @@ const Dashboard = () => (
     {/* <!-- End Tables --> */}
   </div>
 );
+
+const { string, number, arrayOf, shape } = React.PropTypes;
+Dashboard.propTypes = {
+  location: shape({
+    pathname: string,
+    search: string,
+    state: string,
+    action: string,
+    key: string,
+  }),
+  users: shape({
+    items: arrayOf(shape({
+      name: string,
+      id: number,
+      gravatar: string,
+    })),
+  }),
+};
 
 export default connector(Dashboard);

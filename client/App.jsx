@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Users from './Users';
 import Widgets from './Widgets';
 
+import './data/config';
 import './app.scss';
 
 const App = () => (
