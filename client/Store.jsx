@@ -6,6 +6,7 @@ import Widgets from './data/widgets';
 const GET_USERS = 'getUsers';
 const GET_WIDGETS = 'getWidgets';
 const SET_USER_SEARCH = 'setUserSearch';
+const SET_WIDGET_SEARCH = 'setWidgetSearch';
 
 const initialState = {
   user: {
@@ -15,6 +16,7 @@ const initialState = {
   users: {
     items: [],
   },
+  widgetSearch: '',
   widgets: {
     items: [],
   },
@@ -36,6 +38,8 @@ const rootReducer = (state = initialState, action) => {
       return Widgets.reducer(state, action.value);
     case SET_USER_SEARCH:
       return reduceSearch(state, action, 'userSearch');
+    case SET_WIDGET_SEARCH:
+      return reduceSearch(state, action, 'widgetSearch');
     default:
       return state;
   }
@@ -53,6 +57,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   widgets: state.widgets,
   userSearch: state.userSearch,
+  widgetSearch: state.widgetSearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -72,6 +77,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setUserSearch(searchTerm) {
     dispatch({ type: SET_USER_SEARCH, value: searchTerm });
+  },
+  setWidgetSearch(searchTerm) {
+    dispatch({ type: SET_WIDGET_SEARCH, value: searchTerm });
   },
 });
 

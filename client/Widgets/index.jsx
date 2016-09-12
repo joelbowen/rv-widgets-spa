@@ -62,19 +62,11 @@ const Widgets = React.createClass({
         }
         <div className="row">
           <div className="col-lg-12">
-            <div className="widget">
-              <div className="widget-header">Widgets
-                <div className="pull-right">
-                  <button className="btn btn-sm btn-info" onClick={this.toggleCreateWidget}>
-                    + Create
-                  </button>
-                </div>
-              </div>
-              <List
-                location={this.props.location}
-                editWidget={this.editWidget}
-              />
-            </div>
+            <List
+              location={this.props.location}
+              editWidget={this.editWidget}
+              toggleCreateWidget={this.toggleCreateWidget}
+            />
           </div>
         </div>
       </div>
