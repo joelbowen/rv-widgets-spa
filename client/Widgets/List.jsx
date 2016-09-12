@@ -5,6 +5,7 @@ const { bool, string, number, func, arrayOf, shape } = React.PropTypes;
 
 const WidgetsList = React.createClass({
   propTypes: {
+    editWidget: func,
     getWidgets: func,
     widgets: shape({
       items: arrayOf(shape({
@@ -61,7 +62,9 @@ const WidgetsList = React.createClass({
                     {w.id}
                   </td>
                   <td>
-                    {w.name}
+                    <a href="#edit" onClick={() => this.props.editWidget(w)}>
+                      {w.name}
+                    </a>
                   </td>
                   <td style={this.hideIfHome}>
                     {w.color}
@@ -70,7 +73,7 @@ const WidgetsList = React.createClass({
                     {w.price}
                   </td>
                   <td style={this.hideIfHome}>
-                    {w.melts}
+                    { w.melts ? 'Yes' : 'No' }
                   </td>
                   <td style={this.hideIfHome}>
                     {w.inventory}

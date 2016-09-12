@@ -64,6 +64,12 @@ const mapDispatchToProps = (dispatch) => ({
     Widgets.get().then((res) =>
       dispatch({ type: GET_WIDGETS, value: res.data }));
   },
+  updateWidget(widget) {
+    return Widgets.update(widget).then(() => this.getWidgets());
+  },
+  createWidget(widget) {
+    return Widgets.create(widget).then(() => this.getWidgets());
+  },
   setUserSearch(searchTerm) {
     dispatch({ type: SET_USER_SEARCH, value: searchTerm });
   },
