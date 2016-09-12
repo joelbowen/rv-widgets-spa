@@ -56,14 +56,7 @@ const Dashboard = (props) => (
 
       {/* <!-- Users listing --> */}
       <div className="col-lg-6">
-        <div className="widget">
-          <div className="widget-header">Users
-            <div className="pull-right">
-              <input type="text" className="form-control input-sm" />
-            </div>
-          </div>
-          <UserList location={props.location} />
-        </div>
+        <UserList location={props.location} />
       </div>
       {/* <!-- End Users --> */}
 
